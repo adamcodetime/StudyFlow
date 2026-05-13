@@ -1,0 +1,16 @@
+.title {
+    display: grid;
+    place-items: center;
+    color: orange;
+    font-weight: 1000;
+    font-family: 'Courier New', Courier, monospace;
+}
+.input-container {
+    display: grid;
+    place-items: center;
+    height: 50vh; /* pushes it toward vertical center */
+}
+
+.input {
+    padding: 10px;
+}
