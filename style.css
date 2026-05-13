@@ -1,16 +1,79 @@
-.title {
-    display: grid;
-    place-items: center;
-    color: orange;
-    font-weight: 1000;
+/* =======================
+   GLOBAL PAGE STYLE
+======================= */
+body {
+    background-color: black;
+    margin: 0;
     font-family: 'Courier New', Courier, monospace;
 }
-.input-container {
-    display: grid;
-    place-items: center;
-    height: 50vh; /* pushes it toward vertical center */
+
+/* =======================
+   SCREEN SYSTEM (LOGIN / HOME)
+======================= */
+.screen {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
 }
 
+.screen.active {
+    display: flex;
+}
+
+/* =======================
+   TITLE
+======================= */
+.title {
+    color: orange;
+    font-weight: 1000;
+}
+
+/* =======================
+   FORM
+======================= */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    padding: 20px;
+}
+
+/* =======================
+   INPUTS
+======================= */
 .input {
-    padding: 10px;
+    padding: 12px;
+    width: 250px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+/* =======================
+   BUTTON
+======================= */
+.btn {
+    padding: 12px;
+    width: 270px;
+    background-color: orange;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: darkorange;
+}
+
+/* =======================
+   HOME SCREEN TEXT
+======================= */
+.home-title {
+    color: orange;
+    font-size: 40px;
 }
