@@ -1,18 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>StudyFlow</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: black;">
-    <h1 class="title">StudyFlow</h1>
 
-    <div class="input-container">
-        <form action="/">
-            <input class="input" type="password">
+<body>
+
+    <!-- LOGIN SCREEN -->
+    <div id="loginScreen" class="screen active">
+
+        <h1 class="title">StudyFlow</h1>
+
+        <form class="form" onsubmit="goHome(event)">
+
+            <input
+                id="usernameInput"
+                class="input"
+                type="text"
+                placeholder="Username">
+
+            <input
+                class="input"
+                type="password"
+                placeholder="Password">
+
+            <button class="btn" type="submit">
+                Sign In
+            </button>
+
         </form>
+
     </div>
+
+    <!-- HOME SCREEN -->
+    <div id="homeScreen" class="screen">
+
+        <h1 class="home-title">Welcome to StudyFlow! 👋</h1>
+
+        <p style="color:white;">
+            You are now signed in!
+        </p>
+
+        <button class="btn" onclick="goToMessages()">
+            Messages
+        </button>
+
+        <button class="btn" onclick="goToSocial()">
+            Long Form Videos
+        </button>
+
+        <button class="btn" onclick="goToMemes()">
+            Short Form Videos
+        </button>
+
+    </div>
+
+    <!-- MESSAGE SCREEN -->
+    <div id="messageScreen" class="screen">
+
+        <h1 class="home-title">Messages</h1>
+
+        <textarea
+            id="messageInput"
+            class="input"
+            placeholder="Write a message...">
+        </textarea>
+
+        <button class="btn" onclick="postMessage()">
+            Post
+        </button>
+
+        <h2 style="color:white; margin-top:20px;">
+            Everyone's Messages
+        </h2>
+
+        <div id="messageBoard" style="color:white;"></div>
+
+        <button class="btn" onclick="goHomeScreen()">
+            Back
+        </button>
+
+    </div>
+
+    <!-- LONG FORM VIDEOS SCREEN -->
+    <div id="socialScreen" class="screen">
+
+        <h1 class="home-title">
+            Long Form Videos 📺
+        </h1>
+
+        <div style="
+            height:500px;
+            overflow-y:scroll;
+            border:2px solid orange;
+            border-radius:15px;
+            padding:10px;
+            background:#111;
+            width:85%;
+            margin:auto;
+        ">
+
+            <!-- VIDEO 1 -->
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/watch?v=QhWFFoxCTqI"
+                allowfullscreen
+                style="margin-bottom:20px; border-radius:10px;">
+            </iframe>
+
+            <!-- VIDEO 2 -->
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/watch?v=PC8q9cyCgjI&list=PLiUUFwHmAwskWhWfaJ9xbFa4IboZ94UeF"
+                allowfullscreen
+                style="margin-bottom:20px; border-radius:10px;">
+            </iframe>
+
+            <!-- VIDEO 3 -->
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/watch?v=biXEdyg2bYA"
+                allowfullscreen
+                style="margin-bottom:20px; border-radius:10px;">
+            </iframe>
+
+            <!-- VIDEO 4 -->
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/watch?v=thSfyYxJJIE"
+                allowfullscreen
+                style="margin-bottom:20px; border-radius:10px;">
+            </iframe>
+
+        </div>
+
+        <button class="btn" onclick="goHomeScreen()">
+            Back
+        </button>
+
+    </div>
+
+    <!-- SHORT FORM VIDEOS SCREEN -->
+    <div id="memeScreen" class="screen">
+
+        <h1 class="home-title">
+            Short Form Videos 🎬
+        </h1>
+
+        <div style="
+            height:500px;
+            overflow-y:scroll;
+            border:2px solid orange;
+            border-radius:15px;
+            padding:10px;
+            background:#111;
+            width:85%;
+            margin:auto;
+        ">
+
+            <!-- SHORT 1 -->
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/mz7x4vT7qTs"
+                allowfullscreen
+                style="margin-bottom:20px; border-radius:10px;">
+            </iframe>
+
+            <!-- SHORT 2 -->
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/1d7i77Q5C8A"
+                allowfullscreen
+                style="margin-bottom:20px; border-radius:10px;">
+            </iframe>
+
+            <!-- SHORT 3 -->
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/ZWk19OVon2k"
+                allowfullscreen
+                style="margin-bottom:20px; border-radius:10px;">
+            </iframe>
+
+            <!-- SHORT 4 -->
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/Nm1cM4GyY3E"
+                allowfullscreen
+                style="margin-bottom:20px; border-radius:10px;">
+            </iframe>
+
+            <!-- SHORT 5 -->
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/YWN81V7ojOE"
+                allowfullscreen
+                style="margin-bottom:20px; border-radius:10px;">
+            </iframe>
+
+            <!-- SHORT 6 -->
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/tzD9OxAHtzU"
+                allowfullscreen
+                style="margin-bottom:20px; border-radius:10px;">
+            </iframe>
+
+        </div>
+
+        <button class="btn" onclick="goHomeScreen()">
+            Back
+        </button>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        let currentUser = "";
+        let messages = [];
+
+        function show(screenId) {
+
+            document.querySelectorAll(".screen").forEach(screen => {
+                screen.classList.remove("active");
+            });
+
+            document.getElementById(screenId).classList.add("active");
+        }
+
+        function goHome(event) {
+
+            event.preventDefault();
+
+            currentUser = document
+                .getElementById("usernameInput")
+                .value
+                .trim();
+
+            if (currentUser === "") {
+
+                alert("Please enter a username");
+                return;
+            }
+
+            show("homeScreen");
+        }
+
+        function goToMessages() {
+            show("messageScreen");
+        }
+
+        function goToSocial() {
+            show("socialScreen");
+        }
+
+        function goToMemes() {
+            show("memeScreen");
+        }
+
+        function goHomeScreen() {
+            show("homeScreen");
+        }
+
+        function postMessage() {
+
+            const msg = document
+                .getElementById("messageInput")
+                .value
+                .trim();
+
+            if (msg === "") return;
+
+            messages.push({
+                user: currentUser,
+                text: msg
+            });
+
+            document.getElementById("messageInput").value = "";
+
+            updateMessageBoard();
+        }
+
+        function updateMessageBoard() {
+
+            const board =
+                document.getElementById("messageBoard");
+
+            board.innerHTML = "";
+
+            messages.forEach((m) => {
+
+                const p = document.createElement("p");
+
+                p.textContent =
+                    m.user + ": " + m.text;
+
+                board.appendChild(p);
+            });
+        }
+
+    </script>
+
 </body>
+
 </html>
